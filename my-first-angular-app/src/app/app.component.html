@@ -1,0 +1,29 @@
+<p>
+    App Component View
+</p>
+<div>
+    <ul>
+        <li>{{info.nom}}</li>
+        <li>{{info.email}}</li>
+        <li>{{info.tel}}</li>
+    </ul>
+</div>
+<div>
+    <input [(ngModel)]="commentaire.message" type="text" />
+    <button (click)="addCommentaire()" [disabled]="this.commentaire.message == ''">Ajouter Commentaire</button>
+</div>
+<h3>Liste des messages:</h3>
+<div>
+    <ul>
+        <span *ngIf="this.commentaires.length>0 ; else noCommentaire">
+            <span *ngFor="let c of this.commentaires">
+                <span *ngIf="c.id!=0">
+                    <li>{{c.date}} : {{c.message}}</li>
+                </span>
+            </span>
+        </span>
+    </ul>
+    <ng-template #noCommentaire>
+        Liste des commentaires vide.
+    </ng-template>
+</div>
