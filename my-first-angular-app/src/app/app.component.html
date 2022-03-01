@@ -1,29 +1,16 @@
-<p>
-    App Component View
-</p>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav">
+            <li>
+                <button class="btn btn-primary navbar-btn" routerLink="/about">About</button>
+            </li>
+            <li>
+                <button class="btn btn-primary navbar-btn" routerLink="/contacts">Contacts</button>
+            </li>
+        </ul>
+    </div>
+</nav>
+
 <div>
-    <ul>
-        <li>{{info.nom}}</li>
-        <li>{{info.email}}</li>
-        <li>{{info.tel}}</li>
-    </ul>
-</div>
-<div>
-    <input [(ngModel)]="commentaire.message" type="text" />
-    <button (click)="addCommentaire()" [disabled]="this.commentaire.message == ''">Ajouter Commentaire</button>
-</div>
-<h3>Liste des messages:</h3>
-<div>
-    <ul>
-        <span *ngIf="this.commentaires.length>0 ; else noCommentaire">
-            <span *ngFor="let c of this.commentaires">
-                <span *ngIf="c.id!=0">
-                    <li>{{c.date}} : {{c.message}}</li>
-                </span>
-            </span>
-        </span>
-    </ul>
-    <ng-template #noCommentaire>
-        Liste des commentaires vide.
-    </ng-template>
+    <router-outlet></router-outlet>
 </div>

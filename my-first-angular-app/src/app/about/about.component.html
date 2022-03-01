@@ -1,1 +1,51 @@
-<h2> About Component</h2>
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            About Component
+        </div>
+        <div class="panel-body">
+            <h3>Infos: </h3>
+            <div>
+                <ul class="list-group">
+                    <li class="list-group-item">{{info.nom}}</li>
+                    <li class="list-group-item">{{info.email}}</li>
+                    <li class="list-group-item">{{info.tel}}</li>
+                </ul>
+            </div>
+            <!-- Mtd1 utilisation d'un simple button:(click)+appel de fonction-->
+            <!--
+            <div>
+                <input [(ngModel)]="commentaire.message" type="text" />
+                <button class="btn btn-primary" (click)="onAddCommentaire()"
+                    [disabled]="this.commentaire.message == ''">
+                    Ajouter Commentaire
+                </button>
+            </div>
+        -->
+            <!-- Mtd2 soumission d'un forumailre: ngForm+button submit -->
+            <form #f="ngForm" (ngSubmit)="onAddCommentaire(f.value)">
+                <div class="form-group">
+                    <label class="control-label">Message:</label>
+                    <input required="" name="message" ngModel type="text" [(ngModel)]="commentaire.message">
+                    &nbsp;<button type="submit" [disabled]="!f.valid" class="btn btn-primary">Ajouter Commentaire</button>
+                </div>
+            </form>
+            <h3>Commentaires:</h3>
+            <div>
+                <ul class="list-group">
+                    <span *ngIf="this.commentaires.length>0 ; else noCommentaire">
+                        <span *ngFor="let c of this.commentaires">
+                            <li class="list-group-item">
+                                {{c.message}}
+                                <span class="badge"> {{c.date|date:'dd/MM/YYYY hh:mm:ss'}} </span>
+                            </li>
+                        </span>
+                    </span>
+                </ul>
+                <ng-template #noCommentaire>
+                    Liste des commentaires vide.
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</div>

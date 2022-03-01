@@ -5,7 +5,14 @@ import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { FormsModule } from '@angular/forms';
-import { AppService } from './app.service';
+import { AboutService } from '../services/about.service';
+import { RouterModule, Routes } from '@angular/router';
+const appRoutes: Routes =
+  [
+    { path: 'about', component: AboutComponent },
+    { path: 'contacts', component: ContactsComponent },
+    { path: '', redirectTo: '/contacts', pathMatch: 'full' }
+  ]
 
 @NgModule({
   declarations: [
@@ -14,9 +21,9 @@ import { AppService } from './app.service';
     ContactsComponent
   ],
   imports: [
-    BrowserModule, FormsModule
+    BrowserModule, FormsModule, RouterModule.forRoot(appRoutes)
   ],
-  providers: [AppService],
+  providers: [AboutService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

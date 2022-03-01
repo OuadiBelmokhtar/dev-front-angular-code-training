@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 
 @Injectable()
-export class AppService {
+export class AboutService {
     private info = {
         nom: 'Ouadi',
         email: 'ouadi.belmokhtar@gmail.com',
@@ -18,9 +18,10 @@ export class AppService {
         return this.commentaires;
     }
 
-    public addCommentaire(c: any): void {
-        if (c.message != '') {
-            this.commentaires.push(c);
+    public addCommentaire(formCom:any): void {
+        if (formCom.message != '') {
+            formCom.date=new Date();
+            this.commentaires.push(formCom);
         }
     }
 
