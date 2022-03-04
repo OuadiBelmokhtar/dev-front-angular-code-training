@@ -1,0 +1,12 @@
+._cadre-img{
+    height: 290px;
+}
+
+._user-photo-dim{
+    height: 40px;
+    width: 40px;
+}
+
+._clickable{
+    cursor: pointer;
+}

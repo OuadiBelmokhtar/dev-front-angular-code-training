@@ -1,0 +1,34 @@
+<p></p>
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Gallery Component
+        </div>
+        <div class="panel-body">
+            <form #f="ngForm" (ngSubmit)="onSearchPhotos(f.value)">
+                <div class="form-group">
+                    <label>Mot clé: </label>
+                    <input type="text" name="motCle" ngModel required [(ngModel)]="motCle">
+                    <button type="submit" class="btn btn-primary"> Chercher </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- listPhotos? racourcie pr verifier que listPhotos!=nundefined -->
+    <p></p>
+    <div *ngFor="let detailsPh of listPhotos?.hits" class="col-md-3">
+        <div class="panel panel-primary _cadre-img">
+            <div class="panel-heading">
+                <img src="{{detailsPh.userImageURL}}" class="_user-photo-dim img-circle">
+                {{detailsPh.user}}
+            </div>
+            <div class="panel-body">
+                <img (click)="onDetailsPhoto(detailsPh)" src="{{detailsPh.previewURL}}" class="img-thumbnail _clickable"
+                    title="clickez pr voir les détails">
+                <p>{{detailsPh.tags}}</p>
+            </div>
+        </div>
+    </div>
+
+
+</div>
