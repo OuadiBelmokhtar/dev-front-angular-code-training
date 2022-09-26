@@ -1,0 +1,14 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
+<!-- * * * * * * * to get started with your project! * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+<div style="border: solid 1px gray; padding: 15px;">
+  <h1>Parent Component</h1>
+  <span class="label label-info">Data coming from child component is:{{this.dataEmittedFromChildComponent}}</span>
+  <app-child (propEmitter)="this.captureEventAndDataFromChild($event)"></app-child>
+</div>
